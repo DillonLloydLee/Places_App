@@ -9,8 +9,19 @@
 
     $app = new Silex\Application();
 
-    $app->get("/", function() {
-        return "MAIN PAGE";
+    $app->register(new Silex\Provider\TwigServiceProvider(), array(
+        'twig.path' => __DIR__.'/../views'
+    ));
+
+    $app->get("/", function() use ($app) {
+
+        $output = "";
+
+        if (!empty(Place::getAll())) {
+
+            return $app['twig']->render('places.html.twig', array('places' => Place::getAll()));
+
+        }
 
     });
 
