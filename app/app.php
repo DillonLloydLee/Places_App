@@ -13,16 +13,25 @@
         'twig.path' => __DIR__.'/../views'
     ));
 
+
     $app->get("/", function() use ($app) {
-
-        $output = "";
-
-        if (!empty(Place::getAll())) {
-
             return $app['twig']->render('places.html.twig', array('places' => Place::getAll()));
 
-        }
+    });
 
+    $app->post("/add_place", function() use ($app) {
+        $place = new Place($_POST['description'], ['date'], ['souvenir'], ['image']);
+        // $place = new Place($_POST['date']);
+        // $place = new Place($_POST['souvenir']);
+        // $place = new Place($_POST['image']);
+        $place->save();
+        return $app['twig']->render('add_place.html.twig', array('newplace' => $place));
+
+    });
+
+    $app->post("/delete_places", function() use ($app) {
+        Place::deleteAll();
+        return $app['twig']->render('delete_places.html.twig');
     });
 
     return $app;

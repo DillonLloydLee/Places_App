@@ -7,6 +7,36 @@
 
     {% if places is not empty %}
         <p>Here are the places you've been:</p>
+
+        <ul>
+            {% for place in places %}
+                <li>{{ place.getDescription }}</li>
+                <li>{{ place.getDate }}</li>
+                <li>{{ place.getSouvenir }}</li>
+                <br>
+            {% endfor %}
+
     {% endif %}
+
+    <form action='/add_place' method='post'>
+        <label for='description'>Place Description</label>
+        <input id='description' name='description' type='text'>
+        <br>
+
+        <label for='date'>Date of Visit</label>
+        <input id='date' name='date' type='text'>
+        <br>
+
+        <label for='souvenir'>My Specific Keepsake</label>
+        <input id='souvenir' name='souvenir' type='text'>
+        <br><br>
+
+        <button type='submit'>Send My Data!</button>
+    </form>
+
+    <form action='/delete_places' method='post'>
+        <button type='submit'>Erase Place List</button>
+    </form>
+
 </body>
 </html>
