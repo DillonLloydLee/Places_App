@@ -11,7 +11,8 @@
         <ul>
             {% for place in places %}
             <ul><strong>{{ place.getDescription }}</strong>
-                <br><img src="{{ place.getImage }}" height=150 length=300>
+                <br>
+                <img src="{{ place.getImage }}" alt="Picture Goes Here" length=300 height=150>
                 <li>Date of Visit: {{ place.getDate }}</li>
                 <li>Our Souvenir: {{ place.getSouvenir }}</li>
             </ul>
@@ -33,8 +34,8 @@
         <input id='souvenir' name='souvenir' type='text'>
         <br>
 
-        <label for='photo'>A Photo from My Trip (URL)</label>
-        <input id='photo' name='photo' type='text'>
+        <label for='image'>A Photo from My Trip (URL)</label>
+        <input id='image' name='image' type='text'>
         <br><br>
 
         <button type='submit'>Send My Data!</button>

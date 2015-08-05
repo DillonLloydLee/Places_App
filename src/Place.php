@@ -39,7 +39,7 @@ class Place{
     }
 
     function setImage($new_image) {
-        $this->image = $new_image;
+        $this->image = (string) $new_image;
     }
 
     function getImage() {
