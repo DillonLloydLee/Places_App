@@ -8,6 +8,10 @@
 
 - This application demonstrates how to save data in a list using POST functions.  Users add data, then see it, then add more data.
 
+Users complete a form adding inputs for a place description, the date of their visit, their souvenir, and a URL for an image from the trip.
+
+The app then generates a list of their travels. 
+
 ## Setup
 
 - Add Silex using Composer software
