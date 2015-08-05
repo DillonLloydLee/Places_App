@@ -20,7 +20,7 @@
     });
 
     $app->post("/add_place", function() use ($app) {
-        $place = new Place($_POST['description'], ['date'], ['souvenir'], ['image']);
+        $place = new Place($_POST['description'], $_POST['date'], $_POST['souvenir'], ['image']);
         // $place = new Place($_POST['date']);
         // $place = new Place($_POST['souvenir']);
         // $place = new Place($_POST['image']);
